@@ -4,7 +4,7 @@ import datetime
 hours = None
 minutes = None
 a = None
-
+lesson_number = None
 
 def y_time(y_hours, y_minutes):
     new_1 = datetime.timedelta(days=0, hours=y_hours, minutes=y_minutes)
@@ -25,14 +25,14 @@ def x_time(x_hours, x_minutes):
 
 
 def one_more_time():
-    global a, c
+    global a, c, lesson_number
 
     y = datetime.timedelta(
         days=0, hours=datetime.datetime.now().hour, minutes=datetime.datetime.now().minute
         # days=0, hours=12, minutes=39
     )
 
-    # До началы урока
+
     if y <= y_time(8, 20):
         x_time(8, 20)
         c = minutes
@@ -40,37 +40,42 @@ def one_more_time():
         if not a:
             a = '0'
 
-    # 1-ый урок
-    elif y_time(8, 20) <= y <= y_time(9, 5):
-        x_time(9, 5)
+
+    elif y_time(8, 0) <= y <= y_time(8, 45):
+        x_time(8, 45)
         c = minutes
+        lesson_number = 1
 
-    # 2-ой урок
-    elif y_time(9, 10) <= y <= y_time(9, 55):
-        x_time(9, 55)
+
+    elif y_time(8, 50) <= y <= y_time(9, 35):
+        x_time(9, 35)
         c = minutes
+        lesson_number = 2
 
-    # 3-ий урок
-    elif y_time(10, 10) <= y <= y_time(10, 55):
-        x_time(10, 55)
+
+    elif y_time(9, 40) <= y <= y_time(10, 25):
+        x_time(10, 25)
         c = minutes
+        lesson_number = 3
 
 
-    # 4-ый урок
-    elif y_time(11, 5) <= y <= y_time(11, 50):
-        x_time(11, 50)
+
+    elif y_time(10, 40) <= y <= y_time(11, 25):
+        x_time(11, 25)
         c = minutes
+        lesson_number = 4
 
 
-    # 5-ый урок
-    elif y_time(12, 5) <= y <= y_time(12, 50):
+
+    elif y_time(11, 40) <= y <= y_time(12, 25):
         x_time(12, 50)
         c = minutes
+        lesson_number = 5
 
-    # Уроки закончились
-    elif y > y_time(12, 50):
+
+    elif y > y_time(12, 25):
         c = 'lesson_no'
 
-    # Идет перемена
+
     else:
         c = 'new_lesson'

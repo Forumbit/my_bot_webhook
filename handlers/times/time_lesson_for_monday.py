@@ -1,10 +1,10 @@
 import time
 import datetime
-
+import pytz
 hours = None
 minutes = None
 a = None
-
+lesson_number = None
 
 def y_time(y_hours, y_minutes):
     new_1 = datetime.timedelta(days=0, hours=y_hours, minutes=y_minutes)
@@ -15,9 +15,9 @@ def x_time(x_hours, x_minutes):
     global hours, minutes
     x_a = datetime.timedelta(days=0, hours=x_hours, minutes=x_minutes)
     x_b = datetime.timedelta(
-        days=0, hours=datetime.datetime.now().hour, minutes=datetime.datetime.now().minute
+        days=0, hours=datetime.datetime.now(pytz.timezone('Europe/Moscow')).hour, minutes=datetime.datetime.now(pytz.timezone('Europe/Moscow')).minute
     )
-    # x_b = datetime.timedelta(days=0, hours=3, minutes=39)
+    x_b = datetime.timedelta(days=0, hours=12, minutes=39)
     x_c = (x_a - x_b).seconds
     new = time.struct_time(time.gmtime(x_c))
     hours = new.tm_hour
@@ -27,73 +27,75 @@ def x_time(x_hours, x_minutes):
 def one_more_time():
 
     y = datetime.timedelta(
-        days=0, hours=datetime.datetime.now().hour, minutes=datetime.datetime.now().minute
-        # days=0, hours=3, minutes=39
+        days=0, hours=datetime.datetime.now(pytz.timezone('Europe/Moscow')).hour, minutes=datetime.datetime.now(pytz.timezone('Europe/Moscow')).minute
+        # days=0, hours=12, minutes=39
     )
 
-    global a, c
+    global a, c, lesson_number
     # До началы урока
-    if y <= y_time(8, 5):
-        x_time(8, 5)
+    if y <= y_time(8, 20):
+        x_time(8, 20)
         c = minutes
         a = hours
         if not a:
             a = '0'
 
 
-    # 1-ый урок
-    elif y_time(8, 5) <= y <= y_time(8, 50):
-        x_time(8, 50)
+
+    elif y_time(8, 20) <= y <= y_time(9, 5):
+        x_time(9, 5)
         c = minutes
+        lesson_number = 1
 
 
-    # 2-ой урок
-    elif y_time(8, 55) <= y <= y_time(9, 40):
-        x_time(9, 40)
+
+    elif y_time(9, 10) <= y <= y_time(9, 55):
+        x_time(9, 55)
         c = minutes
+        lesson_number = 2
 
 
-    # 3-ий урок
-    elif y_time(9, 55) <= y <= y_time(10, 40):
-        x_time(10, 40)
+    elif y_time(10, 10) <= y <= y_time(10, 55):
+        x_time(10, 55)
         c = minutes
+        lesson_number = 3
 
 
-    # 4-ый урок
-    elif y_time(11, 0) <= y <= y_time(11, 45):
-        x_time(11, 45)
+    elif y_time(11, 15) <= y <= y_time(12, 0):
+        x_time(12, 0)
         c = minutes
+        lesson_number = 4
 
 
-    # 5-ый урок
-    elif y_time(12, 5) <= y <= y_time(12, 50):
-        x_time(12, 50)
+    elif y_time(12, 20) <= y <= y_time(13, 5):
+        x_time(13, 5)
         c = minutes
+        lesson_number = 5
 
 
-    # 6-ой урок
-    elif y_time(12, 55) <= y <= y_time(13, 40):
-        x_time(13, 40)
+    elif y_time(13, 10) <= y <= y_time(13, 55):
+        x_time(13, 55)
         c = minutes
+        lesson_number = 6
 
 
-    # 7-ой урок
-    elif y_time(13, 50) <= y <= y_time(14, 20):
-        x_time(14, 20)
+
+    elif y_time(14, 5) <= y <= y_time(14, 25):
+        x_time(14, 25)
         c = minutes
+        lesson_number = 7
 
-
-    # 8-ой урок
-    elif y_time(14, 30) <= y <= y_time(15, 10):
-        x_time(15, 10)
+    elif y_time(14, 35) <= y <= y_time(15, 15):
+        x_time(15, 15)
         c = minutes
+        lesson_number = 8
 
 
-    # Уроки закончились
-    elif y > y_time(15, 10):
+
+    elif y > y_time(15, 15):
         c = 'lesson_no'
 
 
-    # Идет перемена
+
     else:
         c = 'new_lesson'

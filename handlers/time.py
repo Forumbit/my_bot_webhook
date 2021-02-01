@@ -2,12 +2,14 @@ from aiogram import types
 from misc import dp, bot
 from handlers.times import time_lesson, time_lesson_for_monday, time_lesson_for_sat
 from datetime import datetime
+import pytz
 for_t = 0
 
 @dp.callback_query_handler(text='deadline_lesson')
 async def deadline_lesson(call: types.CallbackQuery):
     global for_t
-    time_t = datetime.today().weekday() + 1
+    time_t = datetime.now(pytz.timezone('Europe/Moscow')).weekday() + 1
+
     if time_t == 1:
         for_t = time_lesson_for_monday
     elif 6 > time_t > 1:
@@ -32,4 +34,4 @@ async def deadline_lesson(call: types.CallbackQuery):
 
     else:
         await bot.send_message(call.message.chat.id,
-                               text='Дәрес бетәчәк: {} минуттан соң.'.format(for_t.c))
+                               text='{} дәрес. Дәрес бетәчәк: {} минуттан соң.'.format(for_t.lesson_number, for_t.c))

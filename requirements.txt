@@ -1,4 +1,8 @@
 aiogram==2.9.2
 aiohttp
 beautifulsoup4==4.9.3
+<<<<<<< HEAD
 pytz
+=======
+requests
+>>>>>>> 28caba686f75f2d152528cb5a8aaf980b2f3d53e

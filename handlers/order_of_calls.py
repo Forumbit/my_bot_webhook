@@ -3,7 +3,7 @@ from misc import bot, dp
 from datetime import datetime
 
 list_weekday = ["Дүшәмбе", "Сишәмбе", "Чәршәмбе", "Пәнҗешәмбе", "Җомга", "Шимбә"]
-list_weekday_correct = ["Сишәмбегә", "Чәршәмбегә", "Пәнҗешәмбегә", "Җомгага"]
+list_weekday_correct = ["1", "Сишәмбегә", "Чәршәмбегә", "Пәнҗешәмбегә", "Җомгага", "2"]
 list = [
     "AgACAgIAAxkDAAIBOmAYDCxnLE4dSBHBhqPF0dEy-VJhAAJ2sjEb22fASG2wLEx7DkvnGzPtly4AAwEAAwIAA3cAA7FgBgABHgQ",
     "AgACAgIAAxkDAAIBLWAYBu18Cj-9Vj125FYR9Zugu23dAAJosjEb22fASPvKfviFtQQBI_TAly4AAwEAAwIAA3cAA6k_BgABHgQ",
@@ -16,14 +16,13 @@ list = [
 @dp.callback_query_handler(text='order_of_calls')
 async def order_of_calls(call: types.CallbackQuery):
         time_t = datetime.today().weekday() + 1
-
         if time_t == 1:
             await bot.send_photo(call.message.chat.id, list[0], caption='Дүшәмбегә кыңгырау бирү тәртибе.')
 
         elif 6 > time_t > 1:
             for i in range(len(list_weekday)):
                 if list_weekday[time_t - 1] == list_weekday[i]:
-                    await bot.send_photo(call.message.chat.id, list[1], caption=f'{list_weekday[time_t - 1]} кыңгырау бирү тәртибе.')
+                    await bot.send_photo(call.message.chat.id, list[i], caption=f'{list_weekday_correct[time_t - 1]} кыңгырау бирү тәртибе.')
 
         elif time_t == 6:
             await bot.send_photo(call.message.chat.id, list[2], caption='Шимбәгә кыңгырау бирү тәртибе.')

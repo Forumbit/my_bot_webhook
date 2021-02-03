@@ -5,12 +5,17 @@ from datetime import datetime
 list_weekday = ["Дүшәмбе", "Сишәмбе", "Чәршәмбе", "Пәнҗешәмбе", "Җомга", "Шимбә"]
 list_weekday_correct = ["1", "Сишәмбегә", "Чәршәмбегә", "Пәнҗешәмбегә", "Җомгага", "2"]
 list = [
-    "AgACAgIAAxkDAAIBOmAYDCxnLE4dSBHBhqPF0dEy-VJhAAJ2sjEb22fASG2wLEx7DkvnGzPtly4AAwEAAwIAA3cAA7FgBgABHgQ",
-    "AgACAgIAAxkDAAIBLWAYBu18Cj-9Vj125FYR9Zugu23dAAJosjEb22fASPvKfviFtQQBI_TAly4AAwEAAwIAA3cAA6k_BgABHgQ",
-    "AgACAgIAAxkDAAIBLmAYBu-tphJPC-wajIjWT5HSJwXbAAJpsjEb22fASBuob93XPIvvbuhRmC4AAwEAAwIAA3cAAyhWBgABHgQ",
-    "AgACAgIAAxkDAAIBL2AYBvAjwlVucPq6fZaddUvQIKiEAAJqsjEb22fASG-O9lX9gDPawUddmi4AAwEAAwIAA3cAAz01BAABHgQ",
-    "AgACAgIAAxkDAAIBMGAYBvGLrngECJ86sdBdffVpUb7qAAJrsjEb22fASOZme0yGMTbPQVgRmy4AAwEAAwIAA3cAA-QxAQABHgQ",
-    "AgACAgIAAxkDAAIBMWAYBvJgYRByJ2WYs-2ULduk7i7xAAJssjEb22fASEgX2SlrVErYPvVBli4AAwEAAwIAA3cAAz_9BgABHgQ"
+    "AgACAgIAAxkDAAIDfWAahlr-VAzr-P1MKOAHwQNZW8J7AAJtsDEbP-3ZSAyxbVLgASdqfagjmy4AAwEAAwIAA3cAA_IXAgABHgQ",
+
+    "AgACAgIAAxkDAAIDfmAahlsYhG0mICtR3VQ8r4FGGj36AAJusDEbP-3ZSGayphvYpoQ55tsvmy4AAwEAAwIAA3cAA-0OAgABHgQ",
+
+    "AgACAgIAAxkDAAIDf2AahlzyScu56zChXmJTIMgXRgtEAAJvsDEbP-3ZSMtqHqxkU_-RiJY9my4AAwEAAwIAA3cAA9QFAgABHgQ",
+
+    "AgACAgIAAxkDAAIDgGAahl02Qtoi5VL9J1RefRAuUOwhAAJwsDEbP-3ZSPB-lropBsQIZukymy4AAwEAAwIAA3cAA98yAgABHgQ",
+
+    "AgACAgIAAxkDAAIDgWAahl9MVpBQdifKJwABnoP-n7OclwACcbAxGz_t2Uhv9frnN0JKnz2WPZsuAAMBAAMCAAN3AAMkBAIAAR4E",
+
+    "AgACAgIAAxkDAAIDgmAahmEgtMjOZzBUFhsBK4COWOcCAAJysDEbP-3ZSBA9w_Bzqvz7G240my4AAwEAAwIAA3cAA2spAgABHgQ",
 ]
 
 @dp.callback_query_handler(text='order_of_calls')
@@ -30,8 +35,16 @@ async def order_of_calls(call: types.CallbackQuery):
         else:
             await call.message.answer('Бүген якшәмбе.')
             return None
-        #
-        # pic = await bot.send_photo(call.message.chat.id, types.InputFile(f'Кыңгырау бирү тәртибе/Дүшәмбе.png'))
+
+        # for i in range(len(list_weekday)):
+        #     pic = await bot.send_photo(call.message.chat.id, types.InputFile(f'Кыңгырау бирү тәртибе/{list_weekday[i]}.png'))
+        #     print()
+        #     print()
+        #     print()
+        #     print()
+        #     print()
+        #     print(i, pic.photo[-1])
+
         # pic1 = await bot.send_photo(call.message.chat.id, types.InputFile(f'handlers/порядок звонков вт-пт.png'))
         # pic2 = await bot.send_photo(call.message.chat.id, types.InputFile(f'handlers/порядок звонков(сб).png'))
         # print(pic.photo[-1])

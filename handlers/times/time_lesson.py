@@ -15,7 +15,7 @@ def x_time(x_hours, x_minutes):
     global hours, minutes
     x_a = datetime.timedelta(days=0, hours=x_hours, minutes=x_minutes)
     x_b = datetime.timedelta(
-        days=0, hours=datetime.datetime.now().hour, minutes=datetime.datetime.now().minute
+        days=0, hours=datetime.datetime.now(pytz.timezone('Europe/Moscow')).hour, minutes=datetime.datetime.now(pytz.timezone('Europe/Moscow')).minute
     )
     # x_b = datetime.timedelta(days=0, hours=12, minutes=39)
     x_c = (x_a - x_b).seconds
@@ -27,7 +27,7 @@ def x_time(x_hours, x_minutes):
 def one_more_time():
     global a, c, lesson_number
     y = datetime.timedelta(
-        days=0, hours=datetime.datetime.now().hour, minutes=datetime.datetime.now().minute
+        days=0, hours=datetime.datetime.now(pytz.timezone('Europe/Moscow')).hour, minutes=datetime.datetime.now(pytz.timezone('Europe/Moscow')).minute
         # days=0, hours=12, minutes=39
     )
 

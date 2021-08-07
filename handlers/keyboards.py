@@ -2,7 +2,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, \
     ReplyKeyboardMarkup, KeyboardButton
 
 # for menu
-orientation = InlineKeyboardButton('⚪ Дәрес челтәре ⚪', callback_data='orientation')
+orientation = InlineKeyboardButton('⚪ Дәресләр челтәре ⚪', callback_data='orientation')
 additionally = InlineKeyboardButton('<<< Өстәмә >>>', callback_data='additionally')
 zamena = InlineKeyboardButton('⚪ Алмаш дәресләр ⚪', callback_data='zamena')
 deadline_lesson = InlineKeyboardButton('⚪ Дәрес ахыры ⚪', callback_data='deadline_lesson')

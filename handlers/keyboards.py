@@ -2,15 +2,15 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, \
     ReplyKeyboardMarkup, KeyboardButton
 
 # for menu
-orientation = InlineKeyboardButton('⚪ Расписание ⚪', callback_data='orientation')
+orientation = InlineKeyboardButton('⚪ Дәрес челтәре ⚪', callback_data='orientation')
 additionally = InlineKeyboardButton('<<< Өстәмә >>>', callback_data='additionally')
-zamena = InlineKeyboardButton('⚪ Заменалар ⚪', callback_data='zamena')
+zamena = InlineKeyboardButton('⚪ Алмаш дәресләр ⚪', callback_data='zamena')
 deadline_lesson = InlineKeyboardButton('⚪ Дәрес ахыры ⚪', callback_data='deadline_lesson')
 additional_zamena = InlineKeyboardButton("⚪ Яңалыклар ⚪", callback_data='additional_zamena')
 order_of_calls = InlineKeyboardButton("⚪ Кыңгырау бирү тәртибе ⚪", callback_data='order_of_calls')
 # Бар нинди дә булса хаталар ботта? Минем белән элемтәгә керегез.
 # for menu_2
-test = InlineKeyboardButton("⚪ Решу ОГЭ и Егэ ⚪", callback_data='test')
+test = InlineKeyboardButton("⚪ ОГЭ/Егэ ⚪", callback_data='test')
 news = InlineKeyboardButton("⚪ Ссылкалар ⚪", callback_data='news')
 enter = InlineKeyboardButton("⚪ Керү ⚪", callback_data='enter')
 cancel_for_menu = InlineKeyboardButton('<<< Артка >>>', callback_data='cancel_for_menu')

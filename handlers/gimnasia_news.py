@@ -7,7 +7,7 @@ import requests
 async def additional_zamena(call: types.CallbackQuery):
     try:
         d = []
-        r = requests.get('http://127.0.0.1:8000/')
+        r = requests.get('http://gimnasium-site.herokuapp.com/')
         html = BS(r.content, 'html.parser')
         for el in html.select('.additional'):
             d.append(el.text)
